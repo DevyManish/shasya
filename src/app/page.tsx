@@ -1,4 +1,6 @@
 import CardNav from "@/components/CardNav";
+import FadeContent from "@/components/FadeContent";
+import { Hero } from "@/components/Hero";
 
 export default function Home() {
   const items = [
@@ -33,15 +35,27 @@ export default function Home() {
   ];
 
   return (
-    <CardNav
-      logo="/logo.webp"
-      logoAlt="Company Logo"
-      items={items}
-      baseColor="#fff"
-      menuColor="#000"
-      buttonBgColor="#111"
-      buttonTextColor="#fff"
-      ease="power3.out"
-    />
+    <div className="">
+      <CardNav
+        logo="/logo.webp"
+        logoAlt="Shasya Logo"
+        items={items}
+        baseColor="#fff"
+        menuColor="#000"
+        buttonBgColor="#111"
+        buttonTextColor="#fff"
+        ease="power3.out"
+      />
+      <main className="flex w-full items-center justify-center mx-auto px-10 py-12 md:py-8 ">
+        <FadeContent
+          blur={true}
+          duration={600}
+          easing="ease-out"
+          initialOpacity={0}
+        >
+          <Hero />
+        </FadeContent>
+      </main>
+    </div>
   );
 }

@@ -3,6 +3,23 @@
 
 @custom-variant dark (&:is(.dark *));
 
+:root {
+  --shasya-gradient: linear-gradient(to right, #16a34a, #22c55e, #4ade80);
+}
+
+.text-gradient {
+  background: var(--shasya-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-gradient {
+  background: var(--shasya-gradient);
+  color: white;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

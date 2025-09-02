@@ -195,13 +195,13 @@ const CardNav: React.FC<CardNavProps> = ({
           </div>
 
           <div className="logo-container flex items-center space-x-3 md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-none">
-            <img src={logo} alt={logoAlt} className="logo h-[28px]" />
-            <p className="font-bold text-xl">Shasya</p>
+            <img src={logo} alt={logoAlt} className="logo h-[32px]" />
+            <p className="font-bold text-2xl italic">Shasya</p>
           </div>
 
           <button
             type="button"
-            className="card-nav-cta-button hidden md:inline-flex border-0 rounded-[calc(0.75rem-0.2rem)] px-4 h-full font-medium cursor-pointer transition-colors duration-300"
+            className="card-nav-cta-button hidden md:inline-flex border-0 rounded-2xl px-4 h-full font-medium cursor-pointer transition-colors duration-300 items-center btn-gradient shadow-md hover:opacity-90 "
             style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
           >
             Get Started
