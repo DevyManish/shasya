@@ -20,9 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${literata.className} antialiased px-10 md:px-20`}>
-        {children}
-      </body>
+      <body className={`${literata.className} antialiased`}>{children}</body>
     </html>
   );
 }

@@ -2,6 +2,7 @@ import { MoveRight, PhoneCall } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+import Link from "next/link";
 
 export const Hero = () => (
   <div className="flex w-full items-center justify-center py-20 lg:py-40">
@@ -25,12 +26,14 @@ export const Hero = () => (
             <Button size="lg" className="gap-4" variant="outline">
               Jump on a call <PhoneCall className="w-4 h-4" />
             </Button>
-            <Button
-              size="lg"
-              className="gap-4 btn-gradient shadow-md hover:opacity-90 transition"
-            >
-              Sign up here <MoveRight className="w-4 h-4" />
-            </Button>
+            <Link href="/auth/register">
+              <Button
+                size="lg"
+                className="gap-4 btn-gradient shadow-md hover:opacity-90 transition"
+              >
+                Sign up here <MoveRight className="w-4 h-4" />
+              </Button>
+            </Link>
           </div>
         </div>
         <Image

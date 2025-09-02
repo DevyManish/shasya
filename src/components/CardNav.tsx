@@ -3,6 +3,8 @@ import React, { useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 // use your own icon import if react-icons is not available
 import { GoArrowUpRight } from "react-icons/go";
+import Link from "next/link";
+import { Button } from "./ui/button";
 
 type CardNavLink = {
   label: string;
@@ -198,14 +200,15 @@ const CardNav: React.FC<CardNavProps> = ({
             <img src={logo} alt={logoAlt} className="logo h-[32px]" />
             <p className="font-bold text-2xl italic">Shasya</p>
           </div>
-
-          <button
-            type="button"
-            className="card-nav-cta-button hidden md:inline-flex border-0 rounded-2xl px-4 h-full font-medium cursor-pointer transition-colors duration-300 items-center btn-gradient shadow-md hover:opacity-90 "
-            style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
-          >
-            Get Started
-          </button>
+          <Link href="auth/login">
+            <Button
+              type="button"
+              className="card-nav-cta-button hidden md:inline-flex border-0 rounded-2xl px-4 h-full font-medium cursor-pointer transition-colors duration-300 items-center btn-gradient shadow-md hover:opacity-90 "
+              style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
+            >
+              Get Started
+            </Button>
+          </Link>
         </div>
 
         <div
