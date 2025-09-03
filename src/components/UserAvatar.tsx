@@ -28,7 +28,7 @@ const UserAvatarDropdown = () => {
   const [theme, setTheme] = useState("light");
 
   // Get user initials for fallback
-  const getUserInitials = (name: String) => {
+  const getUserInitials = (name: string) => {
     if (!name) return "U";
     return name
       .split(" ")
