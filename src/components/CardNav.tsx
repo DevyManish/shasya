@@ -5,6 +5,9 @@ import { gsap } from "gsap";
 import { GoArrowUpRight } from "react-icons/go";
 import Link from "next/link";
 import { Button } from "./ui/button";
+import { useSession } from "@/lib/auth-client";
+import UserAvatarDropdown from "./UserAvatar";
+import { Loader2 } from "lucide-react";
 
 type CardNavLink = {
   label: string;
@@ -42,6 +45,7 @@ const CardNav: React.FC<CardNavProps> = ({
   buttonBgColor,
   buttonTextColor,
 }) => {
+  const { data: session, isPending } = useSession();
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const navRef = useRef<HTMLDivElement | null>(null);
@@ -200,15 +204,25 @@ const CardNav: React.FC<CardNavProps> = ({
             <img src={logo} alt={logoAlt} className="logo h-[32px]" />
             <p className="font-bold text-2xl italic">Shasya</p>
           </div>
-          <Link href="auth/login">
-            <Button
-              type="button"
-              className="card-nav-cta-button hidden md:inline-flex border-0 rounded-2xl px-4 h-full font-medium cursor-pointer transition-colors duration-300 items-center btn-gradient shadow-md hover:opacity-90 "
-              style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
-            >
-              Get Started
-            </Button>
-          </Link>
+
+          {isPending ? (
+            <Loader2 size={16} className="animate-spin md:mr-3" />
+          ) : session?.user ? (
+            <UserAvatarDropdown />
+          ) : (
+            <Link href="auth/login">
+              <Button
+                type="button"
+                className="card-nav-cta-button hidden md:inline-flex border-0 rounded-2xl px-4 h-full font-medium cursor-pointer transition-colors duration-300 items-center btn-gradient shadow-md hover:opacity-90 "
+                style={{
+                  backgroundColor: buttonBgColor,
+                  color: buttonTextColor,
+                }}
+              >
+                Get Started
+              </Button>
+            </Link>
+          )}
         </div>
 
         <div

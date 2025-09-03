@@ -160,9 +160,12 @@ export default function SignIn() {
         </div>
       </CardContent>
       <CardFooter>
-        <div className="flex justify-center w-full border-t py-4">
+        <div className="flex flex-col justify-center w-full border-t py-4">
           <p className="text-center text-xs text-neutral-500">
-            By Loging In you agree our Terms & Conditions.
+            New here?{" "}
+            <Link href="/auth/register">
+              <span className="underline">Create an account</span>
+            </Link>
           </p>
         </div>
       </CardFooter>

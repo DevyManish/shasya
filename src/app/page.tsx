@@ -16,7 +16,7 @@ export default function Home() {
         buttonTextColor="#fff"
         ease="power3.out"
       />
-      <main className="flex w-full items-center justify-center mx-auto px-10 py-12 md:py-18 md:mt-5 ">
+      <main className="flex w-full items-center justify-center mx-auto md:ml-20 px-10 py-12 md:py-18 md:mt-5 ">
         <FadeContent
           blur={true}
           duration={600}

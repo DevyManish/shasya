@@ -17,6 +17,7 @@ import { Loader2, X } from "lucide-react";
 import { signUp } from "@/lib/auth-client";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function SignUp() {
   const [firstName, setFirstName] = useState("");
@@ -184,7 +185,10 @@ export default function SignUp() {
       <CardFooter>
         <div className="flex justify-center w-full border-t py-4">
           <p className="text-center text-xs text-neutral-500">
-            By registering you agree our Terms & Conditions.
+            Already have an account?{" "}
+            <Link href="/auth/login">
+              <span className="underline">Log in</span>
+            </Link>
           </p>
         </div>
       </CardFooter>
