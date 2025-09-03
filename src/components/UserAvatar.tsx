@@ -85,7 +85,7 @@ const UserAvatarDropdown = () => {
 
   const user = session.user;
 
-  //   console.log(user.image);
+  console.log(user.image);
 
   return (
     <DropdownMenu>
@@ -93,9 +93,9 @@ const UserAvatarDropdown = () => {
         <Button variant="ghost" className="relative h-10 w-10 rounded-full ">
           <Avatar className="h-10 w-10">
             <AvatarImage src={user.image!} alt={user.name || user.email} />
-            <AvatarFallback className="bg-gradient-to-r from-green-500 to-green-700 text-white">
+            {/* <AvatarFallback className="bg-gradient-to-r from-green-500 to-green-700 text-white">
               {getUserInitials(user.name || user.email)}
-            </AvatarFallback>
+            </AvatarFallback> */}
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
