@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { Bot, User } from "lucide-react";
+import Image from "next/image";
 
 interface Message {
   id: string;
@@ -9,10 +10,22 @@ interface Message {
   timestamp: Date;
 }
 
+type User =
+  | {
+      id: string;
+      createdAt: Date;
+      updatedAt: Date;
+      email: string;
+      emailVerified: boolean;
+      name: string;
+      image?: string | null;
+    }
+  | undefined;
+
 interface Props {
   message: Message;
   isBot: boolean;
-  user: any;
+  user: User;
 }
 
 export const MessageComponent: React.FC<Props> = ({ message, isBot, user }) => {
@@ -30,11 +43,13 @@ export const MessageComponent: React.FC<Props> = ({ message, isBot, user }) => {
 
       {!isBot && (
         <div className="w-8 h-8 rounded-full flex items-center justify-center border flex-shrink-0">
-          {user?.photoURL ? (
-            <img
-              src={user.photoURL}
+          {user?.image ? (
+            <Image
+              src={user.image}
               alt="User"
               className="w-8 h-8 rounded-full object-cover"
+              width={32}
+              height={32}
             />
           ) : (
             <User className="w-4 h-4" />
