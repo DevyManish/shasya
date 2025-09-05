@@ -202,7 +202,7 @@ const CardNav: React.FC<CardNavProps> = ({
 
           <div className="logo-container flex items-center space-x-3 md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-none">
             <img src={logo} alt={logoAlt} className="logo h-[32px]" />
-            <p className="font-bold text-2xl italic">Shasya</p>
+            <p className="font-bold text-2xl italic text-black">Shasya</p>
           </div>
 
           {isPending ? (
@@ -210,7 +210,7 @@ const CardNav: React.FC<CardNavProps> = ({
           ) : session?.user ? (
             <UserAvatarDropdown />
           ) : (
-            <Link href="/sign">
+            <Link href="/login">
               <Button
                 type="button"
                 className="card-nav-cta-button hidden md:inline-flex border-0 rounded-2xl px-4 h-full font-medium cursor-pointer transition-colors duration-300 items-center btn-gradient shadow-md hover:opacity-90 "

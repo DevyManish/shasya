@@ -58,6 +58,7 @@
 
 :root {
   --radius: 0.625rem;
+  --shasya-gradient: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%);
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -92,6 +93,7 @@
 }
 
 .dark {
+  --shasya-gradient: linear-gradient(135deg, #4ade80 0%, #22c55e 50%, #16a34a 100%);
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
