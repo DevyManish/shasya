@@ -17,6 +17,7 @@ import {
   IconSearch,
   IconSettings,
   IconTemperatureSun,
+  IconHome,
 } from "@tabler/icons-react";
 
 import { NavDocuments } from "./nav-documents";
@@ -39,18 +40,23 @@ import { useSession } from "@/lib/auth-client";
 const data = {
   navMain: [
     {
+      title: "Home",
+      url: "/app",
+      icon: IconHome,
+    },
+    {
       title: "Analyze",
-      url: "#",
+      url: "/app/analyze",
       icon: IconWheat,
     },
     {
       title: "Disease",
-      url: "#",
+      url: "/app/disease",
       icon: IconZoom,
     },
     {
       title: "Fertilizer",
-      url: "#",
+      url: "/app/fertilizer",
       icon: IconCalculator,
     },
     // {
@@ -60,17 +66,17 @@ const data = {
     // },
     {
       title: "Weather",
-      url: "#",
+      url: "/app/weather",
       icon: IconTemperatureSun,
     },
     {
       title: "Expenses",
-      url: "#",
+      url: "/app/expense",
       icon: IconCalendarDollar,
     },
     {
       title: "Ask AI",
-      url: "#",
+      url: "/app/chat",
       icon: IconMessageChatbot,
     },
   ],
@@ -125,34 +131,34 @@ const data = {
   navSecondary: [
     {
       title: "Settings",
-      url: "#",
+      url: "/app/",
       icon: IconSettings,
     },
     {
       title: "Get Help",
-      url: "#",
+      url: "/app/",
       icon: IconHelp,
     },
     {
       title: "Search",
-      url: "#",
+      url: "/app/",
       icon: IconSearch,
     },
   ],
   market: [
     {
       name: "Mandi Prices",
-      url: "#",
+      url: "/app/",
       icon: IconBuildingStore,
     },
     {
       name: "Orders",
-      url: "#",
+      url: "/app/",
       icon: IconReport,
     },
     {
       name: "Buy/Sell",
-      url: "#",
+      url: "/app/",
       icon: IconShoppingCart,
     },
   ],
