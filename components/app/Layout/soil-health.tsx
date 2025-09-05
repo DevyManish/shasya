@@ -3,7 +3,12 @@ import {
   IconMapPin,
   IconMeterSquare,
 } from "@tabler/icons-react";
-import { Card, CardHeader, CardDescription, CardTitle } from "../ui/card";
+import {
+  Card,
+  CardHeader,
+  CardDescription,
+  CardTitle,
+} from "@/components/ui/card";
 import HealthChart from "./health-chart";
 
 const SoilHealth = () => {
