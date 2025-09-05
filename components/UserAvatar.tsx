@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { RiAppsLine } from "react-icons/ri";
 import Link from "next/link";
+import { ModeToggle } from "./mode-toggle";
 
 const UserAvatarDropdown = () => {
   const { data: session } = useSession();
@@ -38,38 +39,38 @@ const UserAvatarDropdown = () => {
       .slice(0, 2);
   };
 
-  const toggleTheme = () => {
-    const newTheme =
-      theme === "light" ? "dark" : theme === "dark" ? "system" : "light";
-    setTheme(newTheme);
+  // const toggleTheme = () => {
+  //   const newTheme =
+  //     theme === "light" ? "dark" : theme === "dark" ? "system" : "light";
+  //   setTheme(newTheme);
 
-    // Apply theme to document
-    if (newTheme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else if (newTheme === "light") {
-      document.documentElement.classList.remove("dark");
-    } else {
-      // System theme
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-        .matches
-        ? "dark"
-        : "light";
-      document.documentElement.classList.toggle("dark", systemTheme === "dark");
-    }
-  };
+  //   // Apply theme to document
+  //   if (newTheme === "dark") {
+  //     document.documentElement.classList.add("dark");
+  //   } else if (newTheme === "light") {
+  //     document.documentElement.classList.remove("dark");
+  //   } else {
+  //     // System theme
+  //     const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+  //       .matches
+  //       ? "dark"
+  //       : "light";
+  //     document.documentElement.classList.toggle("dark", systemTheme === "dark");
+  //   }
+  // };
 
-  const getThemeIcon = () => {
-    switch (theme) {
-      case "light":
-        return <Sun className="h-4 w-4" />;
-      case "dark":
-        return <Moon className="h-4 w-4" />;
-      case "system":
-        return <Monitor className="h-4 w-4" />;
-      default:
-        return <Sun className="h-4 w-4" />;
-    }
-  };
+  // const getThemeIcon = () => {
+  //   switch (theme) {
+  //     case "light":
+  //       return <Sun className="h-4 w-4" />;
+  //     case "dark":
+  //       return <Moon className="h-4 w-4" />;
+  //     case "system":
+  //       return <Monitor className="h-4 w-4" />;
+  //     default:
+  //       return <Sun className="h-4 w-4" />;
+  //   }
+  // };
 
   const handleSignOut = async () => {
     try {
@@ -139,11 +140,9 @@ const UserAvatarDropdown = () => {
 
         <DropdownMenuSeparator />
 
-        <DropdownMenuItem onClick={toggleTheme} className="cursor-pointer">
-          {getThemeIcon()}
-          <span className="ml-2">
-            Theme: {theme.charAt(0).toUpperCase() + theme.slice(1)}
-          </span>
+        <DropdownMenuItem className="cursor-pointer">
+          <ModeToggle />
+          <p>Theme</p>
         </DropdownMenuItem>
 
         <DropdownMenuSeparator />

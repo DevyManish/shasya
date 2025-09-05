@@ -210,7 +210,7 @@ const CardNav: React.FC<CardNavProps> = ({
           ) : session?.user ? (
             <UserAvatarDropdown />
           ) : (
-            <Link href="auth/login">
+            <Link href="/sign">
               <Button
                 type="button"
                 className="card-nav-cta-button hidden md:inline-flex border-0 rounded-2xl px-4 h-full font-medium cursor-pointer transition-colors duration-300 items-center btn-gradient shadow-md hover:opacity-90 "

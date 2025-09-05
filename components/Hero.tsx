@@ -26,7 +26,7 @@ export const Hero = () => (
             <Button size="lg" className="gap-4" variant="outline">
               Jump on a call <PhoneCall className="w-4 h-4" />
             </Button>
-            <Link href="/auth/register">
+            <Link href="/signup">
               <Button
                 size="lg"
                 className="gap-4 btn-gradient shadow-md hover:opacity-90 transition"
