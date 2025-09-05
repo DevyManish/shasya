@@ -1,15 +1,19 @@
 import { betterAuth } from "better-auth";
-import { MongoClient } from "mongodb";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
-import { client } from "@/db/db";
+import mongoose from "mongoose";
+import connectDB from "@/db/db";
+
+const getDb = async () => {
+    await connectDB(); 
+    return mongoose.connection.getClient().db();
+};
+
+const db = await getDb();
 
 export const auth = betterAuth({
-  database: mongodbAdapter(client.db()),
+  database: mongodbAdapter(db),
   emailAndPassword: {
     enabled: true,
-    // async sendResetPassword(data, request) {
-    //         // Send an email to the user with a link to reset their password
-    //     },
   },
   socialProviders: {
     google: {
