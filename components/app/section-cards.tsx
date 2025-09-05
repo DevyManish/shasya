@@ -1,6 +1,6 @@
-import { IconTrendingDown, IconTrendingUp } from "@tabler/icons-react"
+import { IconTrendingDown, IconTrendingUp } from "@tabler/icons-react";
 
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardAction,
@@ -8,7 +8,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 
 export function SectionCards() {
   return (
@@ -17,7 +17,7 @@ export function SectionCards() {
         <CardHeader>
           <CardDescription>Total Revenue</CardDescription>
           <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            $1,250.00
+            ₹1,25,000
           </CardTitle>
           <CardAction>
             <Badge variant="outline">
@@ -28,60 +28,60 @@ export function SectionCards() {
         </CardHeader>
         <CardFooter className="flex-col items-start gap-1.5 text-sm">
           <div className="line-clamp-1 flex gap-2 font-medium">
-            Trending up this month <IconTrendingUp className="size-4" />
+            Increase up this month <IconTrendingUp className="size-4" />
           </div>
-          <div className="text-muted-foreground">
+          {/* <div className="text-muted-foreground">
             Visitors for the last 6 months
-          </div>
+          </div> */}
         </CardFooter>
       </Card>
       <Card className="@container/card">
         <CardHeader>
-          <CardDescription>New Customers</CardDescription>
+          <CardDescription>Expenses</CardDescription>
           <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            1,234
+            ₹13,234
           </CardTitle>
-          <CardAction>
+          {/* <CardAction>
             <Badge variant="outline">
               <IconTrendingDown />
               -20%
             </Badge>
-          </CardAction>
+          </CardAction> */}
         </CardHeader>
         <CardFooter className="flex-col items-start gap-1.5 text-sm">
-          <div className="line-clamp-1 flex gap-2 font-medium">
+          {/* <div className="line-clamp-1 flex gap-2 font-medium">
             Down 20% this period <IconTrendingDown className="size-4" />
-          </div>
+          </div> */}
           <div className="text-muted-foreground">
-            Acquisition needs attention
+            ₹1,200 transfered to SO Traders
           </div>
         </CardFooter>
       </Card>
       <Card className="@container/card">
         <CardHeader>
-          <CardDescription>Active Accounts</CardDescription>
+          <CardDescription>Weather</CardDescription>
           <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            45,678
+            32°C
           </CardTitle>
-          <CardAction>
+          {/* <CardAction>
             <Badge variant="outline">
               <IconTrendingUp />
               +12.5%
             </Badge>
-          </CardAction>
+          </CardAction> */}
         </CardHeader>
         <CardFooter className="flex-col items-start gap-1.5 text-sm">
-          <div className="line-clamp-1 flex gap-2 font-medium">
+          {/* <div className="line-clamp-1 flex gap-2 font-medium">
             Strong user retention <IconTrendingUp className="size-4" />
-          </div>
-          <div className="text-muted-foreground">Engagement exceed targets</div>
+          </div> */}
+          <div className="text-muted-foreground">Rain expected today</div>
         </CardFooter>
       </Card>
       <Card className="@container/card">
         <CardHeader>
-          <CardDescription>Growth Rate</CardDescription>
+          <CardDescription>Yield Rate</CardDescription>
           <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-            4.5%
+            4.2 T/Ha
           </CardTitle>
           <CardAction>
             <Badge variant="outline">
@@ -92,11 +92,11 @@ export function SectionCards() {
         </CardHeader>
         <CardFooter className="flex-col items-start gap-1.5 text-sm">
           <div className="line-clamp-1 flex gap-2 font-medium">
-            Steady performance increase <IconTrendingUp className="size-4" />
+            Steady increase <IconTrendingUp className="size-4" />
           </div>
-          <div className="text-muted-foreground">Meets growth projections</div>
+          {/* <div className="text-muted-foreground">Meets growth projections</div> */}
         </CardFooter>
       </Card>
     </div>
-  )
+  );
 }

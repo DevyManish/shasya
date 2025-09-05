@@ -1,7 +1,5 @@
 "use client";
 import { AppSidebar } from "@/components/app/app-sidebar";
-import { ChartAreaInteractive } from "@/components/app/chart-area-interactive";
-import { DataTable } from "@/components/app/data-table";
 import { SectionCards } from "@/components/app/section-cards";
 import { SiteHeader } from "@/components/app/site-header";
 import FadeContent from "@/components/FadeContent";
@@ -53,10 +51,10 @@ export default function Page() {
             <div className="@container/main flex flex-1 flex-col gap-2">
               <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
                 <SectionCards />
-                <div className="px-4 lg:px-6">
+                {/* <div className="px-4 lg:px-6">
                   <ChartAreaInteractive />
                 </div>
-                <DataTable data={data} />
+                <DataTable data={data} /> */}
               </div>
             </div>
           </div>
