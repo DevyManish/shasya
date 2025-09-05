@@ -1,4 +1,4 @@
-import { AppSidebar } from "@/components/app/app-sidebar";
+import { AppSidebar } from "@/components/app/Layout/app-sidebar";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { useSession } from "@/lib/auth-client";
 import { Loader2 } from "lucide-react";

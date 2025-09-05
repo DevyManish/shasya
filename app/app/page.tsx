@@ -1,6 +1,6 @@
 "use client";
 import { SectionCards } from "@/components/app/section-cards";
-import { SiteHeader } from "@/components/app/site-header";
+import { SiteHeader } from "@/components/app/Layout/site-header";
 import SoilHealth from "@/components/app/soil-health";
 import FadeContent from "@/components/FadeContent";
 import { useSession } from "@/lib/auth-client";

@@ -19,10 +19,10 @@ import {
   IconTemperatureSun,
 } from "@tabler/icons-react";
 
-import { NavDocuments } from "@/components/app/nav-documents";
-import { NavMain } from "@/components/app/nav-main";
-import { NavSecondary } from "@/components/app/nav-secondary";
-import { NavUser } from "@/components/app/nav-user";
+import { NavDocuments } from "./nav-documents";
+import { NavMain } from "./nav-main";
+import { NavSecondary } from "./nav-secondary";
+import { NavUser } from "./nav-user";
 import {
   Sidebar,
   SidebarContent,
