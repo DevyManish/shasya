@@ -14,24 +14,20 @@ import {
   PolarAngleAxis,
   PolarRadiusAxis,
   Radar,
+  Cell,
 } from "recharts";
 
-// A compact, single-file React component that shows:
-//  - A bar chart for available N, P, K (kg/ha)
-//  - A radar chart for environmental/soil properties (pH, EC, Temp, Humidity, OrgMatter)
-// Data here is the "typical snapshot" for Nadia district in September (monsoon + sun).
-// Feel free to replace the numbers with live props or data fetch.
+// Updated component: Now N, P, K bars have specific colors using <Cell> elements.
 
 const dataNPK = [
-  { name: "N (kg/ha)", value: 230 },
-  { name: "P₂O₅ (kg/ha)", value: 60 },
-  { name: "K₂O (kg/ha)", value: 280 },
+  { name: "N (kg/ha)", value: 230, color: "#fb923c" }, // Orange 400
+  { name: "P₂O₅ (kg/ha)", value: 60, color: "#60a5fa" }, // Blue 400
+  { name: "K₂O (kg/ha)", value: 280, color: "#4ade80" }, // Green 400
 ];
 
-// Radar uses a normalized scale for pleasant plotting. We keep a mapping below
 const radarData = [
-  { subject: "pH", value: 7.0, fullMark: 14 }, // pH scale 0-14
-  { subject: "EC (dS/m)", value: 0.35, fullMark: 5 }, // scale up to 5 dS/m for visibility
+  { subject: "pH", value: 7.0, fullMark: 14 },
+  { subject: "EC (dS/m)", value: 0.35, fullMark: 5 },
   { subject: "Temp (°C)", value: 30, fullMark: 50 },
   { subject: "Humidity (%)", value: 83, fullMark: 100 },
   { subject: "Org. Matter (%)", value: 0.8, fullMark: 5 },
@@ -56,7 +52,11 @@ export default function HealthChart({ className = "", compact = false }) {
               <YAxis tick={{ fontSize: 12 }} />
               <Tooltip />
               <Legend />
-              <Bar dataKey="value" name="kg/ha" barSize={48} />
+              <Bar dataKey="value" name="kg/ha" barSize={48}>
+                {dataNPK.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={entry.color} />
+                ))}
+              </Bar>
             </BarChart>
           </ResponsiveContainer>
         </CardContent>
