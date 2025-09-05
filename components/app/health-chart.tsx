@@ -37,7 +37,7 @@ const radarData = [
   { subject: "Org. Matter (%)", value: 0.8, fullMark: 5 },
 ];
 
-export default function HealthCard({ className = "", compact = false }) {
+export default function HealthChart({ className = "", compact = false }) {
   return (
     <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 ${className}`}>
       <Card>

@@ -1,8 +1,9 @@
 "use client";
 import { AppSidebar } from "@/components/app/app-sidebar";
-import HealthCard from "@/components/app/health";
+import HealthCard from "@/components/app/health-chart";
 import { SectionCards } from "@/components/app/section-cards";
 import { SiteHeader } from "@/components/app/site-header";
+import SoilHealth from "@/components/app/soil-health";
 import FadeContent from "@/components/FadeContent";
 import {
   Card,
@@ -64,56 +65,7 @@ export default function Page() {
               <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
                 <SectionCards />
                 <div className="px-4 lg:px-6">
-                  <Card className="@container/card">
-                    <CardHeader>
-                      <CardTitle className="text-lg font-semibold tabular-nums @[250px]/card:text-3xl">
-                        Soil Health
-                      </CardTitle>
-                      <CardDescription>
-                        Last uploaded 2 days ago.
-                      </CardDescription>
-                      <div>
-                        <div className="flex items-center">
-                          <div className="mt-0.5">
-                            <IconMapPin size={15} />
-                          </div>
-                          <p className="ml-1">
-                            Location:{" "}
-                            <span className="text-muted-foreground">
-                              23.3805° N, 88.5243° E
-                            </span>
-                          </p>
-                        </div>
-                        <div className="flex items-center">
-                          <div className="mt-0.5">
-                            <IconMeterSquare size={16} />
-                          </div>
-                          <p className="ml-1">
-                            Area:{" "}
-                            <span className="text-muted-foreground">
-                              21 bigha {"≈ 6.94 acres"}
-                            </span>
-                          </p>
-                        </div>
-                        <div className="flex items-center">
-                          <div className="mt-0.5">
-                            <IconChartAreaLine size={16} />
-                          </div>
-                          <p className="ml-1">
-                            Soil type:{" "}
-                            <span className="text-muted-foreground">
-                              New alluvial, loamy to sandy-loam, neutral pH,
-                              low–medium fertility
-                            </span>
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="py-2">
-                        <HealthCard />
-                      </div>
-                    </CardHeader>
-                  </Card>
+                  <SoilHealth />
                 </div>
               </div>
             </div>
