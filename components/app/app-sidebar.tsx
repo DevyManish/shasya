@@ -34,6 +34,7 @@ import {
 } from "@/components/ui/sidebar";
 import Image from "next/image";
 import Link from "next/link";
+import { useSession } from "@/lib/auth-client";
 
 const data = {
   navMain: [
@@ -157,16 +158,9 @@ const data = {
   ],
 };
 
-export function AppSidebar({
-  user,
-  ...props
-}: React.ComponentProps<typeof Sidebar> & {
-  user: {
-    name: string;
-    email: string;
-    image?: string | undefined;
-  };
-}) {
+export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const { data: session, isPending } = useSession();
+  const user = session?.user;
   return (
     <Sidebar collapsible="offcanvas" {...props}>
       <SidebarHeader>
@@ -197,7 +191,13 @@ export function AppSidebar({
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={user} />
+        <NavUser
+          user={{
+            name: user?.name ?? "",
+            email: user?.email ?? "",
+            image: user?.image ?? undefined,
+          }}
+        />
       </SidebarFooter>
     </Sidebar>
   );
