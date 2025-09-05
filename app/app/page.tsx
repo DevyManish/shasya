@@ -4,6 +4,7 @@ import { ChartAreaInteractive } from "@/components/app/chart-area-interactive";
 import { DataTable } from "@/components/app/data-table";
 import { SectionCards } from "@/components/app/section-cards";
 import { SiteHeader } from "@/components/app/site-header";
+import FadeContent from "@/components/FadeContent";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { useSession } from "@/lib/auth-client";
 
@@ -16,11 +17,12 @@ export default function Page() {
   const user = session?.user;
 
   if (isPending) {
-    return;
-    <div className="flex w-full h-screen items-center justify-center">
-      <p className="text-2xl font-bold italic">Loading</p>
-      <Loader2 size={36} className="animate-spin md:mr-3 bg-slate-600" />
-    </div>;
+    return (
+      <div className="flex w-full h-screen items-center justify-center">
+        <p className="text-2xl font-bold italic">Loading</p>
+        <Loader2 size={36} className="animate-spin md:ml-3 text-green-400" />
+      </div>
+    );
   }
 
   if (!user) {
@@ -28,29 +30,38 @@ export default function Page() {
   }
 
   return (
-    <SidebarProvider
-      style={
-        {
-          "--sidebar-width": "calc(var(--spacing) * 72)",
-          "--header-height": "calc(var(--spacing) * 12)",
-        } as React.CSSProperties
-      }
-    >
-      <AppSidebar variant="inset" />
-      <SidebarInset>
-        <SiteHeader />
-        <div className="flex flex-1 flex-col">
-          <div className="@container/main flex flex-1 flex-col gap-2">
-            <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
-              <SectionCards />
-              <div className="px-4 lg:px-6">
-                <ChartAreaInteractive />
+    <FadeContent>
+      <SidebarProvider
+        style={
+          {
+            "--sidebar-width": "calc(var(--spacing) * 72)",
+            "--header-height": "calc(var(--spacing) * 12)",
+          } as React.CSSProperties
+        }
+      >
+        <AppSidebar
+          variant="inset"
+          user={{
+            name: user?.name ?? "",
+            email: user?.email ?? "",
+            image: user?.image ?? undefined,
+          }}
+        />
+        <SidebarInset>
+          <SiteHeader />
+          <div className="flex flex-1 flex-col">
+            <div className="@container/main flex flex-1 flex-col gap-2">
+              <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
+                <SectionCards />
+                <div className="px-4 lg:px-6">
+                  <ChartAreaInteractive />
+                </div>
+                <DataTable data={data} />
               </div>
-              <DataTable data={data} />
             </div>
           </div>
-        </div>
-      </SidebarInset>
-    </SidebarProvider>
+        </SidebarInset>
+      </SidebarProvider>
+    </FadeContent>
   );
 }

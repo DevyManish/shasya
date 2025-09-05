@@ -3,20 +3,20 @@
 import * as React from "react";
 import {
   IconCamera,
-  IconChartBar,
-  IconDashboard,
-  IconDatabase,
+  IconChartLine,
+  IconZoom,
+  IconBuildingStore,
   IconFileAi,
   IconFileDescription,
-  IconFileWord,
-  IconFolder,
+  IconShoppingCart,
+  IconCalculator,
   IconHelp,
   IconInnerShadowTop,
-  IconListDetails,
+  IconWheat,
   IconReport,
   IconSearch,
   IconSettings,
-  IconUsers,
+  IconTemperatureSun,
 } from "@tabler/icons-react";
 
 import { NavDocuments } from "@/components/app/nav-documents";
@@ -33,38 +33,34 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import Image from "next/image";
+import Link from "next/link";
 
 const data = {
-  user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
   navMain: [
     {
-      title: "Dashboard",
+      title: "Analyze",
       url: "#",
-      icon: IconDashboard,
+      icon: IconWheat,
     },
     {
-      title: "Lifecycle",
+      title: "Disease",
       url: "#",
-      icon: IconListDetails,
+      icon: IconZoom,
+    },
+    {
+      title: "Fertilizer",
+      url: "#",
+      icon: IconCalculator,
     },
     {
       title: "Analytics",
       url: "#",
-      icon: IconChartBar,
+      icon: IconChartLine,
     },
     {
-      title: "Projects",
+      title: "Weather",
       url: "#",
-      icon: IconFolder,
-    },
-    {
-      title: "Team",
-      url: "#",
-      icon: IconUsers,
+      icon: IconTemperatureSun,
     },
   ],
   navClouds: [
@@ -132,26 +128,35 @@ const data = {
       icon: IconSearch,
     },
   ],
-  documents: [
+  market: [
     {
-      name: "Data Library",
+      name: "Mandi Prices",
       url: "#",
-      icon: IconDatabase,
+      icon: IconBuildingStore,
     },
     {
-      name: "Reports",
+      name: "Orders",
       url: "#",
       icon: IconReport,
     },
     {
-      name: "Word Assistant",
+      name: "Buy/Sell",
       url: "#",
-      icon: IconFileWord,
+      icon: IconShoppingCart,
     },
   ],
 };
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export function AppSidebar({
+  user,
+  ...props
+}: React.ComponentProps<typeof Sidebar> & {
+  user: {
+    name: string;
+    email: string;
+    image?: string | undefined;
+  };
+}) {
   return (
     <Sidebar collapsible="offcanvas" {...props}>
       <SidebarHeader>
@@ -161,7 +166,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               asChild
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
-              <a href="#">
+              <Link href="/">
                 {/* <IconInnerShadowTop className="!size-5" /> */}
                 <Image
                   src="/logo.webp"
@@ -171,18 +176,18 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   height={20}
                 />
                 <span className="text-base font-semibold">Shasya</span>
-              </a>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavDocuments items={data.documents} />
+        <NavDocuments items={data.market} />
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <NavUser user={user} />
       </SidebarFooter>
     </Sidebar>
   );
