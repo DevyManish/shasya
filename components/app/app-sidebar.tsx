@@ -3,7 +3,7 @@
 import * as React from "react";
 import {
   IconCamera,
-  IconChartLine,
+  IconCalendarDollar,
   IconZoom,
   IconBuildingStore,
   IconFileAi,
@@ -11,7 +11,7 @@ import {
   IconShoppingCart,
   IconCalculator,
   IconHelp,
-  IconInnerShadowTop,
+  IconMessageChatbot,
   IconWheat,
   IconReport,
   IconSearch,
@@ -52,15 +52,25 @@ const data = {
       url: "#",
       icon: IconCalculator,
     },
-    {
-      title: "Analytics",
-      url: "#",
-      icon: IconChartLine,
-    },
+    // {
+    //   title: "Analytics",
+    //   url: "#",
+    //   icon: IconChartLine,
+    // },
     {
       title: "Weather",
       url: "#",
       icon: IconTemperatureSun,
+    },
+    {
+      title: "Expenses",
+      url: "#",
+      icon: IconCalendarDollar,
+    },
+    {
+      title: "Ask AI",
+      url: "#",
+      icon: IconMessageChatbot,
     },
   ],
   navClouds: [
