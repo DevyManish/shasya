@@ -1,9 +1,10 @@
 "use client";
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React, { useLayoutEffect, useRef, useState, useCallback } from "react";
 import { gsap } from "gsap";
 // use your own icon import if react-icons is not available
 import { GoArrowUpRight } from "react-icons/go";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "./ui/button";
 import { useSession } from "@/lib/auth-client";
 import UserAvatarDropdown from "./UserAvatar";
@@ -70,8 +71,6 @@ const CardNav: React.FC<CardNavProps> = ({
         contentEl.style.position = "static";
         contentEl.style.height = "auto";
 
-        contentEl.offsetHeight;
-
         const topBar = 60;
         const padding = 16;
         const contentHeight = contentEl.scrollHeight;
@@ -87,7 +86,7 @@ const CardNav: React.FC<CardNavProps> = ({
     return 260;
   };
 
-  const createTimeline = () => {
+  const createTimeline = useCallback(() => {
     const navEl = navRef.current;
     if (!navEl) return null;
 
@@ -109,7 +108,7 @@ const CardNav: React.FC<CardNavProps> = ({
     );
 
     return tl;
-  };
+  }, [ease]);
 
   useLayoutEffect(() => {
     const tl = createTimeline();
@@ -119,7 +118,7 @@ const CardNav: React.FC<CardNavProps> = ({
       tl?.kill();
       tlRef.current = null;
     };
-  }, [ease, items]);
+  }, [createTimeline]);
 
   useLayoutEffect(() => {
     const handleResize = () => {
@@ -146,7 +145,7 @@ const CardNav: React.FC<CardNavProps> = ({
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [isExpanded]);
+  }, [isExpanded, createTimeline]);
 
   const toggleMenu = () => {
     const tl = tlRef.current;
@@ -201,7 +200,13 @@ const CardNav: React.FC<CardNavProps> = ({
           </div>
 
           <div className="logo-container flex items-center space-x-3 md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-none">
-            <img src={logo} alt={logoAlt} className="logo h-[32px]" />
+            <Image
+              src={logo}
+              alt={logoAlt}
+              className="logo h-[32px]"
+              width={32}
+              height={32}
+            />
             <p className="font-bold text-2xl italic text-black">Shasya</p>
           </div>
 

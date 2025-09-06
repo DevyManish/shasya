@@ -1,10 +1,7 @@
 import { AppSidebar } from "@/components/app/Layout/app-sidebar";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
-import { useSession } from "@/lib/auth-client";
-import { Loader2 } from "lucide-react";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { redirect } from "next/navigation";
 import FadeContent from "@/components/FadeContent";
 // import { Sidebar } from "@/components/app-sidebar"
 

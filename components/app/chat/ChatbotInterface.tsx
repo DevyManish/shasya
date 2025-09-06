@@ -8,6 +8,14 @@ import Groq from "groq-sdk";
 import { useSession } from "@/lib/auth-client";
 import { MessageComponent } from "./MessageComponent";
 
+// Define the Message interface to match MessageComponent expectations
+interface Message {
+  id: string;
+  content: string;
+  role: "user" | "assistant";
+  timestamp: Date;
+}
+
 const groq = new Groq({
   apiKey: process.env.NEXT_PUBLIC_GROQ_API_KEY,
   dangerouslyAllowBrowser: true,
@@ -17,12 +25,12 @@ export const ChatbotInterface = () => {
   const { data: session } = useSession();
   const user = session?.user;
 
-  const [messages, setMessages] = useState([
+  const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
       content:
         "नमस्ते किसान भाई 👋🏼, मैं आपकी खेती से जुड़ी किसी भी सवाल में मदद करने के लिए तैयार हूँ।",
-      role: "assistant",
+      role: "assistant" as const,
       timestamp: new Date(),
     },
   ]);
@@ -48,10 +56,10 @@ export const ChatbotInterface = () => {
   const sendMessage = async () => {
     if (!inputMessage.trim() || isLoading) return;
 
-    const userMessage = {
+    const userMessage: Message = {
       id: Date.now().toString(),
       content: inputMessage,
-      role: "user",
+      role: "user" as const,
       timestamp: new Date(),
     };
 
@@ -88,23 +96,23 @@ You are a friendly agricultural assistant for Indian farmers.
         temperature: 0.7,
         max_tokens: 800,
       });
-      const assistantMessage = {
+      const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
         content:
           response.choices[0]?.message?.content ||
           "माफ़ कीजिए, मैं इसका जवाब नहीं दे सका।",
-        role: "assistant",
+        role: "assistant" as const,
         timestamp: new Date(),
       };
 
       setMessages((prev) => [...prev, assistantMessage]);
     } catch (error) {
       console.error("Error calling Groq API:", error);
-      const errorMessage = {
+      const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         content:
           "माफ़ कीजिए, आपकी रिक्वेस्ट प्रोसेस करने में समस्या आई। कृपया दोबारा प्रयास करें।",
-        role: "assistant",
+        role: "assistant" as const,
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, errorMessage]);
@@ -126,7 +134,7 @@ You are a friendly agricultural assistant for Indian farmers.
         id: "1",
         content:
           "नमस्ते! मैं आपका खेती सहायक चैटबॉट हूँ। आप मुझसे फसल, मौसम, कीट, सिंचाई या खेती से जुड़े किसी भी सवाल पूछ सकते हैं।",
-        role: "assistant",
+        role: "assistant" as const,
         timestamp: new Date(),
       },
     ]);

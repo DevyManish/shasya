@@ -1,7 +1,7 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { useSession, signOut } from "@/lib/auth-client";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,33 +11,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import {
-  User,
-  Settings,
-  CreditCard,
-  Moon,
-  Sun,
-  Monitor,
-  LogOut,
-} from "lucide-react";
+import { Settings, CreditCard, LogOut } from "lucide-react";
 import { RiAppsLine } from "react-icons/ri";
 import Link from "next/link";
 import { ModeToggle } from "./mode-toggle";
 
 const UserAvatarDropdown = () => {
   const { data: session } = useSession();
-  const [theme, setTheme] = useState("light");
-
-  // Get user initials for fallback
-  const getUserInitials = (name: string) => {
-    if (!name) return "U";
-    return name
-      .split(" ")
-      .map((n) => n[0])
-      .join("")
-      .toUpperCase()
-      .slice(0, 2);
-  };
 
   // const toggleTheme = () => {
   //   const newTheme =
