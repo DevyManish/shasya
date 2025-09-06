@@ -46,7 +46,7 @@ const data = {
     },
     {
       title: "Analyze",
-      url: "/app/analyze",
+      url: "https://shsaycroprecommedation.streamlit.app/",
       icon: IconWheat,
     },
     {
