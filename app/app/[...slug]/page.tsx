@@ -1,5 +1,6 @@
 import FertilizerCalculator from "@/components/app/calculator/fertilizer-cal";
 import Chat from "@/components/app/chat/Chat";
+import MandiPrices from "@/components/app/mandi/mandi-table";
 import React from "react";
 
 const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
@@ -9,6 +10,9 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
   switch (slug[0]) {
     case "fertilizer":
       content = <FertilizerCalculator />;
+      break;
+    case "mandi":
+      content = <MandiPrices />;
       break;
 
     case "analyze":

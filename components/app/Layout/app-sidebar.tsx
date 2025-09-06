@@ -148,7 +148,7 @@ const data = {
   market: [
     {
       name: "Mandi Prices",
-      url: "/app/",
+      url: "/app/mandi",
       icon: IconBuildingStore,
     },
     {
