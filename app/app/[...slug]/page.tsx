@@ -1,3 +1,4 @@
+import FertilizerCalculator from "@/components/app/calculator/fertilizer-cal";
 import Chat from "@/components/app/chat/Chat";
 import React from "react";
 
@@ -6,12 +7,22 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
   let content: React.ReactNode;
 
   switch (slug[0]) {
-    case "about":
-      content = <h1 className="text-2xl font-bold">About Page</h1>;
+    case "fertilizer":
+      content = <FertilizerCalculator />;
       break;
 
-    case "contact":
-      content = <h1 className="text-2xl font-bold">Contact Page</h1>;
+    case "analyze":
+      content = (
+        <div className="w-full h-full">
+          <iframe
+            src="https://shsaycroprecommedation.streamlit.app/"
+            title="Analyze"
+            width="100%"
+            height="80%"
+            // frameBorder="0"
+          ></iframe>
+        </div>
+      );
       break;
 
     case "chat":
