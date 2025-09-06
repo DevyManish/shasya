@@ -168,7 +168,7 @@ export default function SignUp() {
                     toast.error(ctx.error.message);
                   },
                   onSuccess: async () => {
-                    router.push("/dashboard");
+                    router.push("/app");
                   },
                 },
               });
